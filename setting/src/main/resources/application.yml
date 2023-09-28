@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  profiles:
+    active: "dev"
+  # 应用程的名字
+  application:
+    name: "mybatis-example"
+mybatis-plus:
+  #mybatis的核心配置
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: "classpath:mapper/**/*.xml"
