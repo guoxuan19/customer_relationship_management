@@ -1,0 +1,16 @@
+spring:
+  #配置数据库连接驱动
+  datasource:
+    type: "com.alibaba.druid.pool.DruidDataSource"
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+    #配置连接地址
+    druid:
+      url: "jdbc:mysql://8.134.65.90:3306/customer_relationship_management?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false"
+      username: "root"
+      password: "root"
+      max-active: 8
+    #配置SQL图形化界面
+    #配置mybatis
+mybatis:
+mybatis-plus:
+  mapper-locations:
