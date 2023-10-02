@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 启动类
  */
-@SpringBootApplication(scanBasePackages = "com.qf.business.controller")
+@SpringBootApplication(scanBasePackages = {"com.qf.business"})
 public class StartApplication {
     public static void main(String[] args) {
         SpringApplication.run(StartApplication.class,args);
