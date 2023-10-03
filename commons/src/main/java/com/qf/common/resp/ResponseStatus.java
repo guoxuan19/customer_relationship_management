@@ -6,6 +6,8 @@ import lombok.Getter;
 public enum ResponseStatus {
     SUCCESS(200,"成功"),
     SYS_ERROR(400,"系统错误"),
+
+    INDUSTRY_NONE_DATA(4100,"没有数据")
     ;
 
     private Integer code;

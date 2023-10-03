@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.contract.mapper.IndustryMapper">
+  <resultMap id="BaseResultMap" type="com.qf.contract.entity.Industry">
+    <!--@mbg.generated-->
+    <!--@Table t_industry-->
+    <id column="industry_id" jdbcType="INTEGER" property="industryId" />
+    <result column="industry_name" jdbcType="VARCHAR" property="industryName" />
+    <result column="industry_status" jdbcType="INTEGER" property="industryStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    industry_id, industry_name, industry_status, create_time
+  </sql>
+</mapper>

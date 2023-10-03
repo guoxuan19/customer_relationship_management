@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.contract.mapper.ContractMapper">
+  <resultMap id="BaseResultMap" type="com.qf.contract.entity.Contract">
+    <!--@mbg.generated-->
+    <!--@Table t_contract-->
+    <id column="contract_id" jdbcType="INTEGER" property="contractId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="business_opportunity_id" jdbcType="INTEGER" property="businessOpportunityId" />
+    <result column="program_id" jdbcType="INTEGER" property="programId" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="industry_id" jdbcType="INTEGER" property="industryId" />
+    <result column="start_time" jdbcType="DATE" property="startTime" />
+    <result column="end_time" jdbcType="DATE" property="endTime" />
+    <result column="contract_status" jdbcType="INTEGER" property="contractStatus" />
+    <result column="service_status" jdbcType="INTEGER" property="serviceStatus" />
+    <result column="agency_time" jdbcType="DATE" property="agencyTime" />
+    <result column="file_location" jdbcType="VARCHAR" property="fileLocation" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="follow_time" jdbcType="TIMESTAMP" property="followTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    contract_id, title, business_opportunity_id, program_id, price, industry_id, start_time, 
+    end_time, contract_status, service_status, agency_time, file_location, remark, follow_time
+  </sql>
+</mapper>
