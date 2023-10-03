@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -54,12 +55,14 @@ public class ContractVo {
     /**
      * 开始时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @TableField(value = "start_time")
     private Date startTime;
 
     /**
      * 结束时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @TableField(value = "end_time")
     private Date endTime;
 
@@ -78,6 +81,7 @@ public class ContractVo {
     /**
      * 签约日期
      */
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @TableField(value = "agency_time")
     private Date agencyTime;
 
@@ -97,6 +101,7 @@ public class ContractVo {
      * 跟进时间
      */
     @TableField(value = "follow_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date followTime;
 
     private ProgramVo programVo;//关联属性，项目

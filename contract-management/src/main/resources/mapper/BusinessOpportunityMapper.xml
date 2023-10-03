@@ -10,6 +10,9 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="customer_id" jdbcType="INTEGER" property="customerId" />
   </resultMap>
+  <resultMap id="BaseResultMapVo" type="com.qf.contract.common.vo.BusinessOpportunityVo" extends="BaseResultMap">
+    <association property="customerVo" resultMap="com.qf.contract.mapper.CustomerMapper.BaseResultMapVo"/>
+  </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     business_opportunity_id, business_opportunity_name, business_opportunity_status, 

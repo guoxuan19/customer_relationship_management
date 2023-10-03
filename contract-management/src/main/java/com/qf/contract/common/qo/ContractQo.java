@@ -58,10 +58,6 @@ public class ContractQo {
      */
     private Integer contractStatus;
 
-    /**
-     * 业务状态，0删除，1待提交，2待审核，3被驳回，4已审核
-     */
-    private Integer serviceStatus;
 
     /**
      * 签约日期

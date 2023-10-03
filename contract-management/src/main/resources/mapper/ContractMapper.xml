@@ -19,9 +19,82 @@
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="follow_time" jdbcType="TIMESTAMP" property="followTime" />
   </resultMap>
+  <resultMap id="BaseResultMapVo" type="com.qf.contract.common.vo.ContractVo" extends="BaseResultMap">
+    <association property="programVo" resultMap="com.qf.contract.mapper.ProgramMapper.BaseResultMapVo"/>
+    <association property="businessOpportunityVo"
+                 resultMap="com.qf.contract.mapper.BusinessOpportunityMapper.BaseResultMapVo"/>
+    <association property="industryVo" resultMap="com.qf.contract.mapper.IndustryMapper.BaseResultMapVo"/>
+  </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     contract_id, title, business_opportunity_id, program_id, price, industry_id, start_time, 
     end_time, contract_status, service_status, agency_time, file_location, remark, follow_time
   </sql>
+  <update id="updateContract">
+    UPDATE t_contract SET service_status = #{status}
+    <where>
+      contract_id = #{cid}
+    </where>
+  </update>
+  <update id="delContract">
+    UPDATE t_contract SET service_status = 0
+    <where>
+      contract_id IN
+      <foreach collection="list" item="id" open="(" separator="," close=")">
+        #{id}
+      </foreach>
+    </where>
+  </update>
+  <select id="selectContractCount" resultType="java.lang.Integer">
+    SELECT count(1) FROM t_contract c LEFT JOIN t_program00 p ON p.program_id = c.program_id
+    LEFT JOIN t_customer00 cus ON cus.customer_id = p.customer_id
+    <where>
+      <if test="query.contractId != null">c.contract_id = #{query.contractId}</if>
+      <if test="query.customerName != null and query.customerName != ''">
+        <bind name="query.customerName" value="'%' + query.customerName + '%'"/>
+        AND cus.customer_name LIKE #{query.customerName}
+      </if>
+      <if test="query.title != null and query.title != ''">
+        <bind name="query.title" value="'%' + query.title + '%'"/>
+        AND c.title LIKE #{query.title}
+      </if>
+      <if test="query.startTime != null">
+        AND c.start_time &gt;= #{query.startTime}
+      </if>
+      <if test="query.endTime != null ">
+        AND c.end_time &lt;= #{query.endTime}
+      </if>
+      AND c.service_status NOT IN (0)
+    </where>
+  </select>
+  <select id="selectContractByPage" resultMap="BaseResultMapVo">
+    SELECT c.contract_id, c.title, c.business_opportunity_id, c.program_id, c.price,
+    c.industry_id, c.start_time, c.end_time, c.contract_status, c.service_status,
+    c.agency_time, c.file_location, c.remark, c.follow_time,i.industry_id, i.industry_name,
+    bo.business_opportunity_id,bo.business_opportunity_name,bo.customer_id,
+    p.program_id, p.program_name, p.customer_id,cus.customer_id, cus.customer_name
+    FROM (SELECT * FROM t_contract c0 LIMIT #{page},#{size}) AS c LEFT JOIN t_industry i
+    ON c.industry_id = i.industry_id
+    LEFT JOIN t_business_opportunity00 bo ON c.business_opportunity_id = bo.business_opportunity_id
+    LEFT JOIN t_program00 p ON p.program_id = c.program_id
+    LEFT JOIN t_customer00 cus ON bo.customer_id = cus.customer_id
+    <where>
+      <if test="query.contractId != null">c.contract_id = #{query.contractId}</if>
+      <if test="query.customerName != null and query.customerName != ''">
+        <bind name="query.customerName" value="'%' + query.customerName + '%'"/>
+        AND cus.customer_name LIKE #{query.customerName}
+      </if>
+      <if test="query.title != null and query.title != ''">
+        <bind name="query.title" value="'%' + query.title + '%'"/>
+        AND c.title LIKE #{query.title}
+      </if>
+      <if test="query.startTime != null">
+        AND c.start_time &gt;= #{query.startTime}
+      </if>
+      <if test="query.endTime != null ">
+        AND c.end_time &lt;= #{query.endTime}
+      </if>
+      AND c.service_status NOT IN (0)
+    </where>
+  </select>
 </mapper>

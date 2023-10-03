@@ -9,6 +9,7 @@
     <result column="industry_status" jdbcType="INTEGER" property="industryStatus" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
+  <resultMap id="BaseResultMapVo" type="com.qf.contract.common.vo.IndustryVo" extends="BaseResultMap"/>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     industry_id, industry_name, industry_status, create_time

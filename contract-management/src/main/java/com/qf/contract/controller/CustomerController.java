@@ -1,8 +1,8 @@
 package com.qf.contract.controller;
 
 import com.qf.common.resp.ResponseResult;
-import com.qf.contract.common.vo.IndustryVo;
-import com.qf.contract.service.IndustryService;
+import com.qf.contract.common.vo.CustomerVo;
+import com.qf.contract.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,17 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/industry")
-public class IndustryController {
+@RequestMapping("/customer")
+public class CustomerController {
     @Autowired
-    private IndustryService industryService;
-
-    /**
-     * 查所有行业
-     * @return
-     */
+    private CustomerService customerService;
     @GetMapping("/list")
-    public ResponseResult<List<IndustryVo>> getAllIndustry(){
-        return ResponseResult.success(industryService.getAllIndustry());
+    public ResponseResult<List<CustomerVo>> getAllCustomer(){
+        return ResponseResult.success(customerService.getAllCustomer());
     }
 }

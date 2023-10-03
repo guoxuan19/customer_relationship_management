@@ -19,7 +19,7 @@ public class IndustryServiceImpl implements IndustryService {
     public List<IndustryVo> getAllIndustry() {
         List<Industry> industries = industryMapper.selectList(null);
         if (industries == null || industries.size() == 0){
-            throw new IndustryException(ResponseStatus.INDUSTRY_NONE_DATA);
+            throw new IndustryException(ResponseStatus.NONE_DATA);
         }
         List<IndustryVo> industryVos = MyBeanUtils.beanToList(industries, IndustryVo::new);
         return industryVos;
