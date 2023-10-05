@@ -1,0 +1,9 @@
+server:
+  port: 8081
+  #应用程的名字
+spring:
+  application:
+    name: "business-manage"
+    #配置启动加载环境
+  profiles:
+    active: "dev"

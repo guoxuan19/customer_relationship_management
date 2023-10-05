@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.business.mapper.BusinessMapper">
+  <resultMap id="BaseResultMap" type="com.qf.business.entity.Business">
+    <!--@mbg.generated-->
+    <!--@Table t_business-->
+    <id column="business_id" jdbcType="INTEGER" property="businessId" />
+    <result column="business_title" jdbcType="VARCHAR" property="businessTitle" />
+    <result column="client_id" jdbcType="INTEGER" property="clientId" />
+    <result column="contact_id" jdbcType="INTEGER" property="contactId" />
+    <result column="sales_amount" jdbcType="DECIMAL" property="salesAmount" />
+    <result column="signing_date" jdbcType="TIMESTAMP" property="signingDate" />
+    <result column="sales_phase" jdbcType="INTEGER" property="salesPhase" />
+    <result column="business_attention" jdbcType="INTEGER" property="businessAttention" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="follow_up_time" jdbcType="TIMESTAMP" property="followUpTime" />
+    <result column="business_comment" jdbcType="VARCHAR" property="businessComment" />
+    <result column="project_contact" jdbcType="VARCHAR" property="projectContact" />
+    <result column="post" jdbcType="VARCHAR" property="post" />
+    <result column="project_contact_phone" jdbcType="VARCHAR" property="projectContactPhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    business_id, business_title, client_id, contact_id, sales_amount, signing_date, sales_phase, 
+    business_attention, product_id, follow_up_time, business_comment, project_contact, 
+    post, project_contact_phone
+  </sql>
+</mapper>
