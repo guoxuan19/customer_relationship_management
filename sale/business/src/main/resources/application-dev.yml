@@ -31,11 +31,11 @@ spring:
 #mybatis:
 #  mapper-locations: "classpath:mapper/**/*.xml"
 #  # 配置entity的别名
-#  type-aliases-package: "com.qf.data.mybatis.entity"
+#  type-aliases-package: "com.qf.business.**.entity"
 #  configuration:
 #    map-underscore-to-camel-case: true
 
-    #配置mybatis-plus
+#配置mybatis-plus
 mybatis-plus:
   #注册本地所有的mapper.xml资源文件
   mapper-locations: "classpath:mapper/**/*.xml"
@@ -44,7 +44,7 @@ mybatis-plus:
   #开启别名大小转转换
   configuration:
     map-underscore-to-camel-case: true
-  #debug日志配置mapper测试日志
+#debug日志配置mapper测试日志
 logging:
   level:
     com.qf.business.mapper: debug
