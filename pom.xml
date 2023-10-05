@@ -12,6 +12,7 @@
     <modules>
         <module>setting</module>
         <module>commons</module>
+        <module>contract-management</module>
         <module>sale</module>
     </modules>
     <groupId>com.qf.management</groupId>
