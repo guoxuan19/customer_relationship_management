@@ -27,13 +27,25 @@ spring:
         #配置账号密码
         login-username: "admin"
         login-password: "admin"
-    #配置mybatis
-mybatis:
+        #mybatis配置
+#mybatis:
+#  mapper-locations: "classpath:mapper/**/*.xml"
+#  # 配置entity的别名
+#  type-aliases-package: "com.qf.data.mybatis.entity"
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+    #配置mybatis-plus
 mybatis-plus:
-  #注册本地所有的mapper文件
+  #注册本地所有的mapper.xml资源文件
   mapper-locations: "classpath:mapper/**/*.xml"
   #配置entity别名
   type-aliases-package: "com.qf.business.entity"
   #开启别名大小转转换
   configuration:
     map-underscore-to-camel-case: true
+  #debug日志配置mapper测试日志
+logging:
+  level:
+    com.qf.business.mapper: debug
+

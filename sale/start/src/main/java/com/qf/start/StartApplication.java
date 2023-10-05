@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 启动类
+ * 多模块主启动类
  */
 @SpringBootApplication(scanBasePackages = {"com.qf.business"})
 public class StartApplication {
