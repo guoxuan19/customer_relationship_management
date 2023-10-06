@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.business.mapper.FollowupRecordMapper">
+  <resultMap id="BaseResultMap" type="com.qf.business.entity.FollowupRecord">
+    <!--@mbg.generated-->
+    <!--@Table t_followup_record-->
+    <id column="followup_id" jdbcType="INTEGER" property="followupId" />
+    <result column="contact_id" jdbcType="INTEGER" property="contactId" />
+    <result column="followup_method" jdbcType="VARCHAR" property="followupMethod" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="actual_time" jdbcType="TIMESTAMP" property="actualTime" />
+    <result column="followup_content" jdbcType="VARCHAR" property="followupContent" />
+    <result column="business_id" jdbcType="INTEGER" property="businessId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    followup_id, contact_id, followup_method, create_time, actual_time, followup_content, 
+    business_id
+  </sql>
+  <resultMap id="BaseResultMapVo" type="com.qf.business.common.vo.FollowupRecordVo" extends="BaseResultMap" />
+</mapper>

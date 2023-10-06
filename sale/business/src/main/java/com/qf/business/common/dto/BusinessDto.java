@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
-    * 商机表
-    */
+ * 商机表
+ */
 @Data
 @TableName(value = "t_business")
 public class BusinessDto {
@@ -102,31 +102,16 @@ public class BusinessDto {
     @TableField(value = "project_contact_phone")
     private String projectContactPhone;
 
-    public static final String COL_BUSINESS_ID = "business_id";
+    //开始时间
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date startTime;
+    //结束时间
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date endTime;
 
-    public static final String COL_BUSINESS_TITLE = "business_title";
+    //分页起始位置和索引
+    private Integer page;
+    private Integer size;
 
-    public static final String COL_CLIENT_ID = "client_id";
 
-    public static final String COL_CONTACT_ID = "contact_id";
-
-    public static final String COL_SALES_AMOUNT = "sales_amount";
-
-    public static final String COL_SIGNING_DATE = "signing_date";
-
-    public static final String COL_SALES_PHASE = "sales_phase";
-
-    public static final String COL_BUSINESS_ATTENTION = "business_attention";
-
-    public static final String COL_PRODUCT_ID = "product_id";
-
-    public static final String COL_FOLLOW_UP_TIME = "follow_up_time";
-
-    public static final String COL_BUSINESS_COMMENT = "business_comment";
-
-    public static final String COL_PROJECT_CONTACT = "project_contact";
-
-    public static final String COL_POST = "post";
-
-    public static final String COL_PROJECT_CONTACT_PHONE = "project_contact_phone";
 }

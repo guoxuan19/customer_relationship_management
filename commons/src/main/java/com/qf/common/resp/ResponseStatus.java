@@ -12,6 +12,9 @@ public enum ResponseStatus {
     CONTRACT_ILLEGA_UPDATE(4201,"非法编辑"),
 
     BUSINESS_INSERT_ERROR(4301,"商机添加失败"),
+    BUSINESS_EXISTED_ERROR(4302,"商机已经存在"),
+
+
     ;
 
     private Integer code;

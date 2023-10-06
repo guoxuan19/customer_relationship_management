@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 上面是命名空间 -->
+<mapper namespace="com.qf.business.mapper.ConsumeMapper">
+    <resultMap id="BaseResultMap" type="com.qf.business.entity.Consumer">
+        <result column="customer_id" property="customerId"/>
+        <result column="customer_name" property="customerName"/>
+        <result column="customer_status" property="customerStatus"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+    <resultMap id="BaseResultMapVo" type="com.qf.business.common.vo.ConsumerVo" extends="BaseResultMap" />
+</mapper>
