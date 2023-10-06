@@ -13,6 +13,7 @@ public enum ResponseStatus {
 
     BUSINESS_INSERT_ERROR(4301,"商机添加失败"),
     BUSINESS_EXISTED_ERROR(4302,"商机已经存在"),
+    FOLLOWUP_INSERT_ERROR(4305,"跟进记录添加失败"),
 
 
     ;

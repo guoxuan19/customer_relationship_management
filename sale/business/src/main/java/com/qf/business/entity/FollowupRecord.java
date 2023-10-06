@@ -16,7 +16,7 @@ public class FollowupRecord {
     /**
      * 主键id
      */
-    @TableId(value = "followup_id", type = IdType.INPUT)
+    @TableId(value = "followup_id", type = IdType.AUTO)
     private Integer followupId;
 
     /**
