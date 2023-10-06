@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.management.mapper.MessageMapper">
+    <resultMap id="BaseResultMap" type="com.qf.management.entity.Message">
+        <!--@mbg.generated-->
+        <!--@Table t_message-->
+        <id column="message_id" jdbcType="INTEGER" property="messageId"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="scope" jdbcType="INTEGER" property="scope"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_id" jdbcType="BIGINT" property="createId"/>
+        <result column="publisher" jdbcType="VARCHAR" property="publisher"/>
+    </resultMap>
+    <resultMap id="MessageResultMap" type="com.qf.management.vo.MessageVo" extends="BaseResultMap">
+        <association property="createUser" resultMap="com.qf.management.mapper.UserMapper.BaseResultMap"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        message_id,
+        title,
+        `scope`,
+        `state`,
+        create_time,
+        create_id,
+        publisher
+    </sql>
+
+    <select id="list" resultMap="MessageResultMap">
+        SELECT tm.message_id,
+               tm.title,
+               tm.scope,
+               tm.state,
+               tm.create_time,
+               tm.create_id,
+               tm.publisher,
+               tu.name
+        FROM t_message tm
+                 INNER JOIN t_user tu ON tm.create_id = tu.user_id
+        WHERE tu.status = 1
+    </select>
+</mapper>

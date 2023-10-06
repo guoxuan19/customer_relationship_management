@@ -6,6 +6,21 @@ import lombok.Getter;
 public enum ResponseStatus {
     SUCCESS(200,"成功"),
     SYS_ERROR(400,"系统错误"),
+    USER_INSERT_ERROR(40500,"用户插入失败"),
+    USER_UPDATE_ERROR(40501,"用户更新失败"),
+    USER_DELETE_ERROR(40502,"用户删除失败"),
+    BASICSETTING_INSERT_ERROR(405003,"基础设置插入失败"),
+    BASICSETTING_UPDATE_ERROR(405004,"基础设置更新失败"),
+    BASICSETTING_DELETE_ERROR(405005,"基础设置删除失败"),
+    ROLE_INSERT_ERROR(405006,"角色插入失败"),
+    ROLE_UPDATE_ERROR(405007,"角色更新失败"),
+    ROLE_DELETE_ERROR(405008,"角色删除失败"),
+    MESSAGE_INSERT_ERROR(405009,"信息插入失败"),
+    MESSAGE_UPDATE_ERROR(405010,"信息更新失败"),
+    MESSAGE_DELETE_ERROR(405011,"信息删除失败"),
+    COMMONTERMS_INSERT_ERROR(405012,"常用术语插入失败"),
+    COMMONTERMS_UPDATE_ERROR(405013,"常用术语更新失败"),
+    COMMONTERMS_DELETE_ERROR(405014,"常用术语删除失败"),
     ;
 
     private Integer code;
