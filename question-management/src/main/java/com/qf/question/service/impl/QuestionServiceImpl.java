@@ -12,6 +12,7 @@ import com.qf.question.mapper.QuestionMapper;
 import com.qf.question.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionMapper questionMapper;
     @Override
+    @Transactional(timeout = 10,rollbackFor = RuntimeException.class)
     public Integer addQuestion(QuestionQo questionQo) {
         QueryWrapper<Question> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq(Question.COL_QUESTION_DESC,questionQo.getQuestionDesc());
@@ -38,6 +40,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
+    @Transactional(timeout = 10,rollbackFor = RuntimeException.class)
     public Integer delQuestion(List<Integer> ids) {
         Integer num = questionMapper.delQuestion(ids);
         if (num != ids.size()){
@@ -47,6 +50,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
+    @Transactional(timeout = 10,rollbackFor = RuntimeException.class)
     public Integer modifyQuestion(QuestionQo questionQo) {
         QueryWrapper<Question> queryWrapper = new QueryWrapper<>();
         queryWrapper.notIn(Question.COL_QUESTION_ID,questionQo.getQuestionId()).

@@ -105,6 +105,7 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
+    @Transactional(timeout = 10,rollbackFor = RuntimeException.class)
     public Integer delContract(List<Integer> ids) {
         Integer num = contractMapper.delContract(ids);
         if (num != ids.size()){

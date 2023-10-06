@@ -12,6 +12,7 @@ import com.qf.question.mapper.OnlineHelpMapper;
 import com.qf.question.service.OnlineHelpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
 public class OnlineHelpServiceImpl implements OnlineHelpService {
     @Autowired
     private OnlineHelpMapper onlineHelpMapper;
+    @Transactional(timeout = 10,rollbackFor = RuntimeException.class)
     @Override
     public Integer addOnlineHelp(OnlineHelpQo onlineHelpQo) {
         QueryWrapper<OnlineHelp> queryWrapper = new QueryWrapper<>();
@@ -38,6 +40,7 @@ public class OnlineHelpServiceImpl implements OnlineHelpService {
     }
 
     @Override
+    @Transactional(timeout = 10,rollbackFor = RuntimeException.class)
     public Integer delOnlineHelp(List<Integer> ids) {
         Integer num = onlineHelpMapper.delOnlineHelp(ids);
         if (num != ids.size()){
@@ -47,6 +50,7 @@ public class OnlineHelpServiceImpl implements OnlineHelpService {
     }
 
     @Override
+    @Transactional(timeout = 10,rollbackFor = RuntimeException.class)
     public Integer modifyOnlineHelp(OnlineHelpQo onlineHelpQo) {
         QueryWrapper<OnlineHelp> queryWrapper = new QueryWrapper<>();
         queryWrapper.notIn(OnlineHelp.COL_ONLINE_HELP_ID,onlineHelpQo.getOnlineHelpId())
