@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.management.mapper.BasicSettingMapper">
+    <resultMap id="BaseResultMap" type="com.qf.management.entity.BasicSetting">
+        <!--@mbg.generated-->
+        <!--@Table t_basic_setting-->
+        <id column="basic_setting_id" jdbcType="INTEGER" property="basicSettingId"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_id" jdbcType="BIGINT" property="createId"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <resultMap id="BasicSettingResultMap" type="com.qf.management.vo.BasicSettingVo" extends="BaseResultMap">
+        <association property="createUser" resultMap="com.qf.management.mapper.UserMapper.BaseResultMap"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        basic_setting_id,
+        `type`,
+        `value`,
+        create_time,
+        create_id,
+        `status`
+    </sql>
+
+    <select id="list" resultMap="BasicSettingResultMap">
+        SELECT tbs.basic_setting_id, tbs.type, value, tbs.create_time, tbs.create_id, tu.name
+        FROM t_basic_setting tbs
+                 INNER JOIN t_user tu ON tbs.create_id = tu.user_id
+        WHERE tbs.status = 1
+          AND tu.status = 1
+    </select>
+</mapper>

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * 1.拦截Controller层所有的方法，对其进行异常通知增强（在类上使用注解@RestControllerAdvice 或者 @ControllerAdvice）
  * 2.公开的方法上声明需要处理的异常
  */
-
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)

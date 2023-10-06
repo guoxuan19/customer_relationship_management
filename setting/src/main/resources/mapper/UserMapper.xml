@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.management.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.qf.management.entity.User">
+        <!--@mbg.generated-->
+        <!--@Table t_user-->
+        <id column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="mall_account" jdbcType="VARCHAR" property="mallAccount"/>
+        <result column="sex" jdbcType="INTEGER" property="sex"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="role_id" jdbcType="INTEGER" property="roleId"/>
+        <result column="department_id" jdbcType="INTEGER" property="departmentId"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <resultMap id="UserResultMap" type="com.qf.management.vo.UserVo" extends="BaseResultMap">
+        <association property="role" resultMap="com.qf.management.mapper.RoleMapper.BaseResultMap"/>
+        <association property="dept" resultMap="com.qf.management.mapper.DeptMapper.BaseResultMap"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        user_id,
+        `name`,
+        user_name,
+        mall_account,
+        sex,
+        phone,
+        role_id,
+        department_id,
+        `password`,
+        create_time,
+        `status`
+    </sql>
+
+    <select id="selectUserByPage" resultMap="UserResultMap">
+        SELECT tu.user_id,
+               tu.name,
+               tu.user_name,
+               tu.mall_account,
+               tu.sex,
+               tu.phone,
+               tu.role_id,
+               tu.department_id,
+               tu.password,
+               tu.create_time,
+               tr.role_name,
+               td.dept_name
+        FROM t_user tu
+                 INNER JOIN t_role tr ON tu.role_id = tr.role_id
+                 INNER JOIN t_dept td ON td.dept_id = tu.department_id
+        WHERE tu.status = 1
+          AND tr.status = 1
+          AND td.dept_status = 1
+    </select>
+</mapper>

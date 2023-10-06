@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.management.mapper.CommonTermsMapper">
+    <resultMap id="BaseResultMap" type="com.qf.management.entity.CommonTerms">
+        <!--@mbg.generated-->
+        <!--@Table t_common_terms-->
+        <id column="common_terms_id" jdbcType="INTEGER" property="commonTermsId"/>
+        <result column="terminology" jdbcType="VARCHAR" property="terminology"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_id" jdbcType="BIGINT" property="createId"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <resultMap id="CommonTermsResultMap" type="com.qf.management.vo.CommonTermsVo" extends="BaseResultMap">
+        <association property="createUser" resultMap="com.qf.management.mapper.UserMapper.BaseResultMap"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        common_terms_id,
+        terminology,
+        create_time,
+        create_id,
+        `status`
+    </sql>
+
+    <select id="list" resultMap="CommonTermsResultMap">
+        SELECT tct.common_terms_id, tct.terminology, tct.create_time, tct.create_id, tct.status, tu.name
+        FROM t_common_terms tct
+                 INNER JOIN t_user tu ON tct.create_id = tu.user_id
+        WHERE tu.status = 1
+    </select>
+</mapper>
