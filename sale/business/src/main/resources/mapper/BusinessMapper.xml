@@ -38,7 +38,7 @@
     </sql>
 
     <resultMap id="BusinessVoResultMap" type="com.qf.business.common.vo.BusinessVo" extends="BaseResultMap">
-        <association property="consumerVo" resultMap="com.qf.business.mapper.ConsumeMapper.BaseResultMapVo"/>
+        <association property="consumerVo" resultMap="com.qf.business.mapper.ConsumerMapper.BaseResultMapVo"/>
         <association property="contactVo" resultMap="com.qf.business.mapper.ContactMapper.BaseResultMapVo"/>
         <collection property="productVo" resultMap="com.qf.business.mapper.ProductMapper.BaseResultMapVo"/>
         <collection property="followupRecordVo"

@@ -37,6 +37,7 @@ public class BusinessVo {
     /**
      * 签单日期
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date signingDate;
 
     /**
@@ -57,7 +58,7 @@ public class BusinessVo {
     /**
      * 下次跟进时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date followUpTime;
 
     /**
@@ -85,7 +86,7 @@ public class BusinessVo {
 
     private ContactVo contactVo;//关联联系人 一对一
 
-    private List<ProductVo> productVo;//关联产品  一对多
+    private List<ProductVo> productVo;//关联产品  一对一产品关系
 
     private  List<FollowupRecordVo> followupRecordVo;//关联跟进信息  一对多
 }

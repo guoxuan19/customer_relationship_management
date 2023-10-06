@@ -113,5 +113,10 @@ public class BusinessDto {
     private Integer page;
     private Integer size;
 
+    //客户名称
+    private String customerName;
+    //关键联系人名称
+    private String contactName;
+
 
 }

@@ -4,7 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.qf.business.common.dto.BusinessDto;
 import com.qf.business.common.vo.BusinessVo;
 import com.qf.business.entity.Business;
+import com.qf.business.entity.Consumer;
+import com.qf.business.entity.Contact;
 import com.qf.business.mapper.BusinessMapper;
+import com.qf.business.mapper.ConsumerMapper;
+import com.qf.business.mapper.ContactMapper;
 import com.qf.business.service.BusinessService;
 import com.qf.common.exception.BusinessOpportunityException;
 import com.qf.common.resp.ResponseStatus;
@@ -23,6 +27,10 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Resource
     private BusinessMapper businessMapper;
+    @Resource
+    private ConsumerMapper consumerMapper;
+    @Resource
+    private ContactMapper contactMapper;
 
     @Transactional(timeout = 5,rollbackFor = Exception.class)
     @Override
@@ -42,7 +50,7 @@ public class BusinessServiceImpl implements BusinessService {
 
         Business business = MyBeanUtils.copyBean(businessDto, Business::new);
         int num = businessMapper.insert(business);
-
+        //添加失败
         if (num == 0){
             throw new BusinessOpportunityException(ResponseStatus.BUSINESS_INSERT_ERROR);
         }
@@ -51,6 +59,26 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Override
     public PageUtils<BusinessVo> queryBusiness(BusinessDto businessDto) {
+        //如果传递客户不为空先查询客户表id
+        if (!ObjectUtils.isEmpty(businessDto.getCustomerName())){
+            QueryWrapper<Consumer> qw = new QueryWrapper<>();
+            qw.like(Consumer.COL_CUSTOMER_NAME,businessDto.getCustomerName());
+            Consumer consumer = consumerMapper.selectOne(qw);
+            businessDto.setClientId(consumer.getCustomerId());
+        }
+
+        //如果有传递关联联系人先查询联系人id
+        if (!ObjectUtils.isEmpty(businessDto.getContactName())){
+
+            QueryWrapper<Contact> queryWrapper = new QueryWrapper<>();
+            queryWrapper.like(Contact.COL_CONTACT_NAME,businessDto.getContactName());
+            Contact contact = contactMapper.selectOne(queryWrapper);
+            businessDto.setContactId(contact.getContactId());
+        }
+
+
+
+
         PageUtils<BusinessVo> page = new PageUtils<>();
         //设置当前页码
         page.setCurrentPage(businessDto.getPage());
