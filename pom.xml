@@ -13,6 +13,7 @@
         <module>setting</module>
         <module>commons</module>
         <module>contract-management</module>
+        <module>question-management</module>
     </modules>
     <groupId>com.qf.management</groupId>
     <artifactId>customer_relationship_management</artifactId>

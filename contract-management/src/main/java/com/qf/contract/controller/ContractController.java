@@ -2,6 +2,7 @@ package com.qf.contract.controller;
 
 import com.qf.common.resp.ResponseResult;
 import com.qf.common.utils.PageUtils;
+import com.qf.contract.common.ContractConstant;
 import com.qf.contract.common.qo.ContractQo;
 import com.qf.contract.common.qo.QueryWrapperOfContract;
 import com.qf.contract.common.vo.ContractVo;
@@ -24,7 +25,7 @@ public class ContractController {
      */
     @PostMapping("/store")
     public ResponseResult<Integer> storeContract(@RequestBody ContractQo contractQo){
-        return ResponseResult.success(contractService.addContract(1,contractQo));
+        return ResponseResult.success(contractService.addContract(ContractConstant.CONTRACT_UNCOMMITED,contractQo));
     }
 
     /**
@@ -34,7 +35,7 @@ public class ContractController {
      */
     @PostMapping("/up")
     public ResponseResult<Integer> upContract(@RequestBody ContractQo contractQo){
-        return ResponseResult.success(contractService.addContract(2,contractQo));
+        return ResponseResult.success(contractService.addContract(ContractConstant.CONTRACT_WAITING,contractQo));
     }
 
     /**
@@ -54,7 +55,7 @@ public class ContractController {
      */
     @PutMapping("/update/store")
     public ResponseResult<Integer> updateAndStoreContract(@RequestBody ContractQo contractQo){
-        return ResponseResult.success(contractService.modifyContract(1,contractQo));
+        return ResponseResult.success(contractService.modifyContract(ContractConstant.CONTRACT_UNCOMMITED,contractQo));
     }
 
     /**
@@ -64,7 +65,7 @@ public class ContractController {
      */
     @PutMapping("/update/up")
     public ResponseResult<Integer> updateAndUpContract(@RequestBody ContractQo contractQo){
-        return ResponseResult.success(contractService.modifyContract(2,contractQo));
+        return ResponseResult.success(contractService.modifyContract(ContractConstant.CONTRACT_WAITING,contractQo));
     }
 
     /**
@@ -74,7 +75,7 @@ public class ContractController {
      */
     @PutMapping("/toup")
     public ResponseResult<Integer> toUpContract(Integer cid){
-        return ResponseResult.success(contractService.modifyContract(2,cid));
+        return ResponseResult.success(contractService.modifyContract(ContractConstant.CONTRACT_WAITING,cid));
     }
 
     /**
@@ -84,7 +85,7 @@ public class ContractController {
      */
     @PutMapping("/pass")
     public ResponseResult<Integer> passContract(Integer cid){
-        return ResponseResult.success(contractService.modifyContract(4,cid));
+        return ResponseResult.success(contractService.modifyContract(ContractConstant.CONTRACT_SUCCESS,cid));
     }
 
     /**
@@ -94,7 +95,7 @@ public class ContractController {
      */
     @PutMapping("/reject")
     public ResponseResult<Integer> rejectContract(Integer cid){
-        return ResponseResult.success(contractService.modifyContract(3,cid));
+        return ResponseResult.success(contractService.modifyContract(ContractConstant.CONTRACT_REJECT,cid));
     }
 
     /**

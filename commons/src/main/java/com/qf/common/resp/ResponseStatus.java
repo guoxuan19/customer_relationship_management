@@ -9,7 +9,9 @@ public enum ResponseStatus {
 
     NONE_DATA(4100,"没有数据"),
     CONTRACT_HAS_EXIST(4200,"合同标题或商机或项目重复"),
-    CONTRACT_ILLEGA_UPDATE(4201,"非法编辑")
+    CONTRACT_ILLEGA_UPDATE(4201,"非法编辑"),
+    ONLINE_HELP_NAME_EXIST(4300,"在线帮助名重复"),
+    QUESTION_EXIST(4400,"问题重复")
     ;
 
     private Integer code;

@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: "jdbc:mysql://8.134.65.90:3306/customer_relationship_management?useSSL=false&serverTimezone=UTC"
+      password: "root"
+      username: "root"
+      max-active: 8
+      filters: "stat,wall,slf4j"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: "/druid/*"
+        login-username: "admin"
+        login-password: "admin"
+
+mybatis-plus:
+  mapper-locations: "classpath:mapper/**/*.xml"
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: "com.qf.question.entity"
