@@ -1,7 +1,6 @@
 spring:
   datasource:
     # 声明连接类类型
-    type: com.alibaba.druid.pool.DruidDataSource
     druid:
       url: "jdbc:mysql://8.134.65.90/customer_relationship_management?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false"
       username: "root"

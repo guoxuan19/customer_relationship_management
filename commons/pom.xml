@@ -14,13 +14,8 @@
     <version>1.0.0</version>
     <name>commons</name>
 
-
     <modules>
         <module>common-base</module>
         <module>common-db</module>
     </modules>
-
-
-
-
 </project>
