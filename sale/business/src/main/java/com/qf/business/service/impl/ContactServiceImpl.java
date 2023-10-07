@@ -1,15 +1,13 @@
 package com.qf.business.service.impl;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.qf.business.common.vo.ContactVo;
-import com.qf.business.entity.Contact;
 import com.qf.business.mapper.ContactMapper;
 import com.qf.business.service.ContactService;
-import com.qf.common.exception.ContactException;
-import com.qf.common.resp.ResponseStatus;
-import com.qf.common.utils.MyBeanUtils;
+import com.qf.common.base.exception.ContactException;
+import com.qf.common.base.resp.ResponseStatus;
+import com.qf.common.base.utils.MyBeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 

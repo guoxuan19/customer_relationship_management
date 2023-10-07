@@ -2,7 +2,7 @@ package com.qf.business.controller;
 
 import com.qf.business.common.dto.FollowupRecordDto;
 import com.qf.business.service.FollowupRecordService;
-import com.qf.common.resp.ResponseResult;
+import com.qf.common.base.resp.ResponseResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

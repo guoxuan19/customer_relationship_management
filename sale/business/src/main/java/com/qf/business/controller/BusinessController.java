@@ -3,8 +3,8 @@ package com.qf.business.controller;
 import com.qf.business.common.dto.BusinessDto;
 import com.qf.business.common.vo.BusinessVo;
 import com.qf.business.service.BusinessService;
-import com.qf.common.resp.ResponseResult;
-import com.qf.common.utils.PageUtils;
+import com.qf.common.base.resp.ResponseResult;
+import com.qf.common.base.utils.PageUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

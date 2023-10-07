@@ -1,13 +1,12 @@
 package com.qf.business.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.qf.business.common.dto.FollowupRecordDto;
 import com.qf.business.entity.FollowupRecord;
 import com.qf.business.mapper.FollowupRecordMapper;
 import com.qf.business.service.FollowupRecordService;
-import com.qf.common.exception.BusinessOpportunityException;
-import com.qf.common.resp.ResponseStatus;
-import com.qf.common.utils.MyBeanUtils;
+import com.qf.common.base.exception.BusinessOpportunityException;
+import com.qf.common.base.resp.ResponseStatus;
+import com.qf.common.base.utils.MyBeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;

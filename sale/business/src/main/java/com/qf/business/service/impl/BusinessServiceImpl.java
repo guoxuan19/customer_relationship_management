@@ -10,10 +10,11 @@ import com.qf.business.mapper.BusinessMapper;
 import com.qf.business.mapper.ConsumerMapper;
 import com.qf.business.mapper.ContactMapper;
 import com.qf.business.service.BusinessService;
-import com.qf.common.exception.BusinessOpportunityException;
-import com.qf.common.resp.ResponseStatus;
-import com.qf.common.utils.MyBeanUtils;
-import com.qf.common.utils.PageUtils;
+import com.qf.common.base.exception.BusinessOpportunityException;
+import com.qf.common.base.resp.ResponseStatus;
+import com.qf.common.base.utils.MyBeanUtils;
+
+import com.qf.common.base.utils.PageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;

@@ -6,4 +6,4 @@ spring:
     name: "business-manage"
     #配置启动加载环境
   profiles:
-    active: "dev"
+    active: "db,dev"

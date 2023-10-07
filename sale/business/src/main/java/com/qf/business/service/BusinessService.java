@@ -3,7 +3,7 @@ package com.qf.business.service;
 
 import com.qf.business.common.dto.BusinessDto;
 import com.qf.business.common.vo.BusinessVo;
-import com.qf.common.utils.PageUtils;
+import com.qf.common.base.utils.PageUtils;
 
 public interface BusinessService {
 

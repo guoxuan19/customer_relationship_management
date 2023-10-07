@@ -9,31 +9,6 @@ spring:
       username: "root"
       password: "root"
       max-active: 8
-    #配置SQL图形化界面
-      #开启过滤防火墙
-      filter: "start,wall,slf4j"
-      web-stat-filter:
-        #开启监控信息
-        enabled: true
-        #拦截所有请求
-        url-pattern: "/*"
-        #排除不监控资源
-        exclusions: "*.js,*.jpg,*.css,/druid/*"
-      #配置拦截web显示界面
-      stat-view-servlet:
-        enabled: true
-        #访问监控的url路径
-        url-pattern: "/druid/*"
-        #配置账号密码
-        login-username: "admin"
-        login-password: "admin"
-        #mybatis配置
-#mybatis:
-#  mapper-locations: "classpath:mapper/**/*.xml"
-#  # 配置entity的别名
-#  type-aliases-package: "com.qf.business.**.entity"
-#  configuration:
-#    map-underscore-to-camel-case: true
 
 #配置mybatis-plus
 mybatis-plus:

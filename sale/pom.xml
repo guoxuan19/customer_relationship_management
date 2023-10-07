@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <!--    继承pom-->
     <parent>
-        <groupId>com.qf.management</groupId>
+        <groupId>com.qf</groupId>
         <artifactId>customer_relationship_management</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -15,23 +15,31 @@
     <groupId>com.qf.sale</groupId>
     <artifactId>sale</artifactId>
     <version>1.0.0</version>
+    <name>sale</name>
     <!--    声明子模块-->
     <modules>
         <module>business</module>
         <module>order</module>
         <module>performanceindicator</module>
         <module>platformactivity</module>
-        <module>start</module>
     </modules>
 
-    <!-- 导入公共的pom   -->
     <dependencies>
+        <!--        公共工具类-->
         <dependency>
-            <groupId>com.qf.management</groupId>
-            <artifactId>commons</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.qf.common.common-base</groupId>
+            <artifactId>common-base</artifactId>
+        </dependency>
+        <!--        公共db包-->
+        <dependency>
+            <groupId>com.qf.commons.common-db</groupId>
+            <artifactId>common-db</artifactId>
+        </dependency>
+        <!--        pagehelper插件-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
-
 
 </project>
