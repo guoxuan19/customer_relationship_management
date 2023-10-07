@@ -1,7 +1,7 @@
 package com.qf.management.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.qf.common.resp.ResponseResult;
+import com.qf.common.base.resp.ResponseResult;
 import com.qf.management.dto.RoleDto;
 import com.qf.management.service.RoleService;
 import com.qf.management.vo.RoleVo;

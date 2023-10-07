@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   profiles:
-    active: "dev"
+    active: "db,dev"
   # 应用程的名字
   application:
     name: "mybatis-example"
