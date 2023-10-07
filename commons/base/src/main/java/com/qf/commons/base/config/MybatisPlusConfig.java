@@ -1,4 +1,4 @@
-package com.qf.management.config;
+package com.qf.commons.base.config;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;

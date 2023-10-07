@@ -1,8 +1,8 @@
-package com.qf.common.utils;
+package com.qf.commons.base.utils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.qf.common.exception.EquipmentException;
-import com.qf.common.resp.ResponseStatus;
+import com.qf.commons.base.exception.EquipmentException;
+import com.qf.commons.base.resp.ResponseStatus;
 import lombok.Data;
 
 import java.util.ArrayList;

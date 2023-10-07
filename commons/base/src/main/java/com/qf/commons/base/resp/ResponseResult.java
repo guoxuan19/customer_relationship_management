@@ -1,4 +1,4 @@
-package com.qf.common.resp;
+package com.qf.commons.base.resp;
 
 import lombok.Data;
 

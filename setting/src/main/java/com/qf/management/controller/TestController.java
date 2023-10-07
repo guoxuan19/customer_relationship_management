@@ -3,7 +3,7 @@ package com.qf.management.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.qf.common.resp.ResponseResult;
+import com.qf.commons.base.resp.ResponseResult;
 
 
 @RestController

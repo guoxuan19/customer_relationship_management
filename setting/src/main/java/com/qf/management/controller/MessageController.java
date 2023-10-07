@@ -1,7 +1,7 @@
 package com.qf.management.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.qf.common.resp.ResponseResult;
+import com.qf.commons.base.resp.ResponseResult;
 import com.qf.management.dto.MessageDto;
 import com.qf.management.service.MessageService;
 import com.qf.management.vo.MessageVo;

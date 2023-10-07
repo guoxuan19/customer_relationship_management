@@ -1,7 +1,7 @@
-package com.qf.common.exception;
+package com.qf.commons.base.exception;
 
 
-import com.qf.common.resp.ResponseStatus;
+import com.qf.commons.base.resp.ResponseStatus;
 
 public class InstitutionException extends BaseException{
 

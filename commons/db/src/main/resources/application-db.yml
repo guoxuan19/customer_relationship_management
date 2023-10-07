@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    # 声明连接类类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #  stat 监控数据库性能
+      # wall   开启防火墙
+      #  slf4j 日志框架
+      filters: "stat,wall,slf4j"
+      web-stat-filter:
+        #  开启监控信息
+        enabled: true
+        # 拦截监控所有请求
+        url-pattern: "/*"
+        # 排除不监控的资源
+        exclusions: "*.js,*.jpg,*.css,/druid/*"
+        # 配置显示界面
+      stat-view-servlet:
+        enabled: true
+        # 访问监控的url路径
+        url-pattern: /druid/*
+        # 是否显示重置按钮
+        reset-enable: true
+        login-username: admin
+        login-password: admin
+#        allow: "ip:端口/24,ip:端口"
+logging:
+  level:
+    com.qf.data.mybatisplus.mapper: debug
+
+mybatis-plus:
+  #mybatis的核心配置
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: "classpath:mapper/**/*.xml"
+  global-config:
+    db-config:
+      logic-delete-field: status
+      logic-not-delete-value: 1
+      logic-delete-value: 0

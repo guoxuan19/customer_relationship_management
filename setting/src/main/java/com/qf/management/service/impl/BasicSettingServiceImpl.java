@@ -1,9 +1,9 @@
 package com.qf.management.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.qf.common.exception.ServiceException;
-import com.qf.common.resp.ResponseStatus;
-import com.qf.common.utils.MyBeanUtils;
+import com.qf.commons.base.exception.ServiceException;
+import com.qf.commons.base.resp.ResponseStatus;
+import com.qf.commons.base.utils.MyBeanUtils;
 import com.qf.management.dto.BasicSettingDto;
 import com.qf.management.entity.BasicSetting;
 import com.qf.management.mapper.BasicSettingMapper;

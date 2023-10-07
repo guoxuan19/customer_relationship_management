@@ -3,22 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.qf.management</groupId>
-        <artifactId>customer_relationship_management</artifactId>
+        <groupId>com.qf.management.commons</groupId>
+        <artifactId>commons</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>setting</artifactId>
+    <groupId>com.qf.management.commons.db</groupId>
+    <artifactId>db</artifactId>
     <version>1.0.0</version>
-    <name>setting</name>
-    <description>setting</description>
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.qf.management.commons</groupId>
-            <artifactId>commons</artifactId>
-        </dependency>
-    </dependencies>
+    <name>db</name>
 </project>

@@ -1,7 +1,7 @@
-package com.qf.common.handler;
+package com.qf.commons.base.handler;
 
-import com.qf.common.exception.BaseException;
-import com.qf.common.resp.ResponseResult;
+import com.qf.commons.base.exception.BaseException;
+import com.qf.commons.base.resp.ResponseResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
