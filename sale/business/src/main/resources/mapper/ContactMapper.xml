@@ -1,21 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qf.business.mapper.ContactMapper">
-  <resultMap id="BaseResultMap" type="com.qf.business.entity.Contact">
-    <!--@mbg.generated-->
-    <!--@Table t_contact-->
-    <id column="contact_id" jdbcType="INTEGER" property="contactId" />
-    <result column="contact_name" jdbcType="VARCHAR" property="contactName" />
-    <result column="contact_phone" jdbcType="VARCHAR" property="contactPhone" />
-    <result column="contact_landline" jdbcType="VARCHAR" property="contactLandline" />
-    <result column="dept_id" jdbcType="INTEGER" property="deptId" />
-    <result column="contact_position" jdbcType="VARCHAR" property="contactPosition" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="contact_status" jdbcType="INTEGER" property="contactStatus" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    contact_id, contact_name, contact_phone, contact_landline, dept_id, contact_position, 
-    create_time, contact_status
-  </sql>
+    <resultMap id="BaseResultMap" type="com.qf.business.entity.Contact">
+        <!--@mbg.generated-->
+        <!--@Table t_contact-->
+        <id column="contact_id" jdbcType="INTEGER" property="contactId"/>
+        <result column="contact_name" jdbcType="VARCHAR" property="contactName"/>
+        <result column="contact_phone" jdbcType="VARCHAR" property="contactPhone"/>
+        <result column="contact_landline" jdbcType="VARCHAR" property="contactLandline"/>
+        <result column="dept_id" jdbcType="INTEGER" property="deptId"/>
+        <result column="contact_position" jdbcType="VARCHAR" property="contactPosition"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="contact_status" jdbcType="INTEGER" property="contactStatus"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        contact_id,
+        contact_name,
+        contact_phone,
+        contact_landline,
+        dept_id,
+        contact_position,
+        create_time,
+        contact_status
+    </sql>
+
+    <resultMap id="BaseResultMapVo" type="com.qf.business.common.vo.ContactVo" extends="BaseResultMap"/>
+
+
+    <resultMap id="ContactAndDeptResultMap" type="com.qf.business.common.vo.ContactVo" extends="BaseResultMap">
+        <association property="deptVo"  resultMap="com.qf.business.mapper.DeptMapper.BaserResultMapperVo"/>
+    </resultMap>
+    <select id="list" resultMap="ContactAndDeptResultMap">
+        SELECT tc.contact_id,
+               tc.contact_name,
+               tc.contact_gender,
+               tc.contact_phone,
+               tc.contact_landline,
+               tc.dept_id,
+               tc.contact_position,
+               tc.create_time,
+               tc.contact_status,
+               td.dept_id,
+               td.dept_name,
+               td.create_time,
+               td.dept_status
+        FROM t_contact tc
+                 LEFT JOIN t_dept td ON tc.dept_id = td.dept_id
+    </select>
 </mapper>

@@ -20,4 +20,5 @@
     product_id, product_skuId, product_name, product_brand, membership_price, wholesale_price, 
     product_model, product_level, create_time, product_status
   </sql>
+  <resultMap id="BaseResultMapVo" type="com.qf.business.common.vo.ProductVo" extends="BaseResultMap" />
 </mapper>

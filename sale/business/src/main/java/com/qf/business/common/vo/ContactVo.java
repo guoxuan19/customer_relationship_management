@@ -5,13 +5,14 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.qf.business.entity.Dept;
 import lombok.Data;
 
 import java.util.Date;
 
 /**
-    * 联系人表
-    */
+ * 联系人表
+ */
 @Data
 @TableName(value = "t_contact")
 public class ContactVo {
@@ -59,24 +60,10 @@ public class ContactVo {
     private Date createTime;
 
     /**
-     * 联系人状态 0表示离职 1表示在职 
+     * 联系人状态 0表示离职 1表示在职
      */
     @TableField(value = "contact_status")
     private Integer contactStatus;
 
-    public static final String COL_CONTACT_ID = "contact_id";
-
-    public static final String COL_CONTACT_NAME = "contact_name";
-
-    public static final String COL_CONTACT_PHONE = "contact_phone";
-
-    public static final String COL_CONTACT_LANDLINE = "contact_landline";
-
-    public static final String COL_DEPT_ID = "dept_id";
-
-    public static final String COL_CONTACT_POSITION = "contact_position";
-
-    public static final String COL_CREATE_TIME = "create_time";
-
-    public static final String COL_CONTACT_STATUS = "contact_status";
+    private DeptVo deptVo;//关联属性-部门
 }

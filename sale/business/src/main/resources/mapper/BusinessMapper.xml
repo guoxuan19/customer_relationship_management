@@ -1,28 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qf.business.mapper.BusinessMapper">
-  <resultMap id="BaseResultMap" type="com.qf.business.entity.Business">
-    <!--@mbg.generated-->
-    <!--@Table t_business-->
-    <id column="business_id" jdbcType="INTEGER" property="businessId" />
-    <result column="business_title" jdbcType="VARCHAR" property="businessTitle" />
-    <result column="client_id" jdbcType="INTEGER" property="clientId" />
-    <result column="contact_id" jdbcType="INTEGER" property="contactId" />
-    <result column="sales_amount" jdbcType="DECIMAL" property="salesAmount" />
-    <result column="signing_date" jdbcType="TIMESTAMP" property="signingDate" />
-    <result column="sales_phase" jdbcType="INTEGER" property="salesPhase" />
-    <result column="business_attention" jdbcType="INTEGER" property="businessAttention" />
-    <result column="product_id" jdbcType="INTEGER" property="productId" />
-    <result column="follow_up_time" jdbcType="TIMESTAMP" property="followUpTime" />
-    <result column="business_comment" jdbcType="VARCHAR" property="businessComment" />
-    <result column="project_contact" jdbcType="VARCHAR" property="projectContact" />
-    <result column="post" jdbcType="VARCHAR" property="post" />
-    <result column="project_contact_phone" jdbcType="VARCHAR" property="projectContactPhone" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    business_id, business_title, client_id, contact_id, sales_amount, signing_date, sales_phase, 
-    business_attention, product_id, follow_up_time, business_comment, project_contact, 
-    post, project_contact_phone
-  </sql>
+    <resultMap id="BaseResultMap" type="com.qf.business.entity.Business">
+        <!--@mbg.generated-->
+        <!--@Table t_business-->
+        <id column="business_id" jdbcType="INTEGER" property="businessId"/>
+        <result column="business_title" jdbcType="VARCHAR" property="businessTitle"/>
+        <result column="client_id" jdbcType="INTEGER" property="clientId"/>
+        <result column="contact_id" jdbcType="INTEGER" property="contactId"/>
+        <result column="sales_amount" jdbcType="DECIMAL" property="salesAmount"/>
+        <result column="signing_date" jdbcType="TIMESTAMP" property="signingDate"/>
+        <result column="sales_phase" jdbcType="INTEGER" property="salesPhase"/>
+        <result column="business_attention" jdbcType="INTEGER" property="businessAttention"/>
+        <result column="product_id" jdbcType="INTEGER" property="productId"/>
+        <result column="follow_up_time" jdbcType="TIMESTAMP" property="followUpTime"/>
+        <result column="business_comment" jdbcType="VARCHAR" property="businessComment"/>
+        <result column="project_contact" jdbcType="VARCHAR" property="projectContact"/>
+        <result column="post" jdbcType="VARCHAR" property="post"/>
+        <result column="project_contact_phone" jdbcType="VARCHAR" property="projectContactPhone"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        business_id,
+        business_title,
+        client_id,
+        contact_id,
+        sales_amount,
+        signing_date,
+        sales_phase,
+        business_attention,
+        product_id,
+        follow_up_time,
+        business_comment,
+        project_contact,
+        post,
+        project_contact_phone
+    </sql>
+
+    <resultMap id="BusinessVoResultMap" type="com.qf.business.common.vo.BusinessVo" extends="BaseResultMap">
+        <association property="consumerVo" resultMap="com.qf.business.mapper.ConsumerMapper.BaseResultMapVo"/>
+        <association property="contactVo" resultMap="com.qf.business.mapper.ContactMapper.BaseResultMapVo"/>
+        <collection property="productVo" resultMap="com.qf.business.mapper.ProductMapper.BaseResultMapVo"/>
+        <collection property="followupRecordVo"
+                    resultMap="com.qf.business.mapper.FollowupRecordMapper.BaseResultMapVo"/>
+    </resultMap>
+    <select id="selectBusinessByPage" resultMap="BusinessVoResultMap">
+        SELECT s.business_id,
+               s.business_title,
+               s.client_id,
+               s.contact_id,
+               s.sales_amount,
+               s.signing_date,
+               s.sales_phase,
+               s.business_attention,
+               s.product_id,
+               s.follow_up_time,
+               s.business_comment,
+               s.project_contact,
+               s.post,
+               s.project_contact_phone,
+               tcm.customer_id,
+               tcm.customer_name,
+               tcm.customer_status,
+               tcm.create_time,
+               tct.contact_id,
+               tct.contact_name,
+               tct.contact_gender,
+               tct.contact_phone,
+               tct.contact_landline,
+               tct.dept_id,
+               tct.contact_position,
+               tct.create_time,
+               tct.contact_status,
+               tpd.product_id,
+               tpd.product_skuId,
+               tpd.product_name,
+               tpd.product_brand,
+               tpd.membership_price,
+               tpd.wholesale_price,
+               tpd.product_model,
+               tpd.product_level,
+               tpd.create_time,
+               tpd.product_status,
+               tfur.followup_id,
+               tfur.contact_id,
+               tfur.followup_method,
+               tfur.create_time,
+               tfur.actual_time,
+               tfur.followup_content,
+               tfur.business_id
+        FROM (SELECT *
+              FROM t_business tb
+              LIMIT #{business.page},#{business.size}) AS s
+                 LEFT JOIN t_consumer tcm ON tcm.customer_id = s.client_id
+                 LEFT JOIN t_contact tct ON tct.contact_id = s.contact_id
+                 LEFT JOIN t_product tpd ON tpd.product_id = s.product_id
+                 LEFT JOIN t_followup_record tfur ON tfur.business_id = s.business_id
+        <where>
+            <if test="business.businessId != null">
+                and s.business_id = #{business.businessId}
+            </if>
+            <if test="business.businessTitle != null">
+                <bind name="parameter" value="'%' + business.businessTitle + '%'"/>
+                AND s.business_title LIKE #{parameter}
+            </if>
+            <if test="business.clientId != null">
+                AND s.client_id = #{business.clientId}
+            </if>
+            <if test="business.contactId != null">
+                AND s.contact_id = #{business.contactId}
+            </if>
+            <if test="business.salesAmount != null">
+                AND s.sales_amount = #{business.salesAmount}
+            </if>
+            <if test="business.startTime != null and business.endTime != null">
+                AND s.signing_date BETWEEN #{business.startTime} AND #{business.endTime}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectBusinessCount" resultType="_int">
+        SELECT COUNT(1)
+        FROM t_business  s
+                 LEFT JOIN t_consumer tcm ON tcm.customer_id = s.client_id
+                 LEFT JOIN t_contact tct ON tct.contact_id = s.contact_id
+                 LEFT JOIN t_product tpd ON tpd.product_id = s.product_id
+                 LEFT JOIN t_followup_record tfur ON tfur.business_id = s.business_id
+        <where>
+            <if test="business.businessId != null">
+                and s.business_id = #{business.businessId}
+            </if>
+            <if test="business.businessTitle != null">
+                <bind name="parameter" value="'%' + business.businessTitle + '%'"/>
+                AND s.business_title LIKE #{parameter}
+            </if>
+            <if test="business.clientId != null">
+                AND s.client_id = #{business.clientId}
+            </if>
+            <if test="business.contactId != null">
+                AND s.contact_id = #{business.contactId}
+            </if>
+            <if test="business.salesAmount != null">
+                AND s.sales_amount = #{business.salesAmount}
+            </if>
+            <if test="business.startTime != null and business.endTime != null">
+                AND s.signing_date BETWEEN #{business.startTime} AND #{business.endTime}
+            </if>
+        </where>
+    </select>
 </mapper>

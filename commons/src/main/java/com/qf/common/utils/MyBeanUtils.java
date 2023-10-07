@@ -3,6 +3,7 @@ package com.qf.common.utils;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 
 import java.util.List;
@@ -40,6 +41,16 @@ public class MyBeanUtils extends BeanUtils {
         //第三步给目标vo对象赋值
         page.setRecords(list);
         return page;
+    }
+
+    public static <S, T> PageInfo<T> copyPage(PageInfo<S> source, PageInfo<T> pageInfo, Supplier<T> target) {
+        //1.copy在持久分页对象pageInfo中除开集合的其它属性
+        copyProperties(source,pageInfo);
+        //2.copy在PageInfo的集合
+        List<T> list = beanToList(source.getList(), target);
+        //3.给目标Vo分页对象赋值
+        pageInfo.setList(list);
+        return pageInfo;
     }
 
 }

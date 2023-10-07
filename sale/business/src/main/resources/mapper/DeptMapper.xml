@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 上面是命名空间 -->
+<mapper namespace="com.qf.business.mapper.DeptMapper">
+    <resultMap id="BaserResultMapper" type="com.qf.business.entity.Dept">
+        <id column="dept_id" property="deptId"/>
+        <result column="dept_name" property="deptName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="dept_status" property="deptStatus"/>
+    </resultMap>
+
+    <resultMap id="BaserResultMapperVo" type="com.qf.business.common.vo.DeptVo" extends="BaserResultMapper" />
+</mapper>

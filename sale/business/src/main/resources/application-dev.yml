@@ -48,4 +48,5 @@ mybatis-plus:
 logging:
   level:
     com.qf.business.mapper: debug
-
+page helper:
+  reasonable: true

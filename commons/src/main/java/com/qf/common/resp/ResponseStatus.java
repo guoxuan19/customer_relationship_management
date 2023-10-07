@@ -12,6 +12,10 @@ public enum ResponseStatus {
     CONTRACT_ILLEGA_UPDATE(4201,"非法编辑"),
 
     BUSINESS_INSERT_ERROR(4301,"商机添加失败"),
+    BUSINESS_EXISTED_ERROR(4302,"商机已经存在"),
+    FOLLOWUP_INSERT_ERROR(4305,"跟进记录添加失败"),
+
+
     USER_INSERT_ERROR(40500,"用户插入失败"),
     USER_UPDATE_ERROR(40501,"用户更新失败"),
     USER_DELETE_ERROR(40502,"用户删除失败"),
