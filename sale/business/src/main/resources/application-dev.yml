@@ -9,7 +9,6 @@ spring:
       username: "root"
       password: "root"
       max-active: 8
-
 #配置mybatis-plus
 mybatis-plus:
   #注册本地所有的mapper.xml资源文件
