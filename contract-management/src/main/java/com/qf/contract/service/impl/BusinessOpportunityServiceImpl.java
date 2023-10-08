@@ -1,9 +1,9 @@
 package com.qf.contract.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.qf.common.exception.BusinessOpportunityException;
-import com.qf.common.resp.ResponseStatus;
-import com.qf.common.utils.MyBeanUtils;
+import com.qf.common.base.exception.BusinessOpportunityException;
+import com.qf.common.base.resp.ResponseStatus;
+import com.qf.common.base.utils.MyBeanUtils;
 import com.qf.contract.common.vo.BusinessOpportunityVo;
 import com.qf.contract.entity.BusinessOpportunity;
 import com.qf.contract.mapper.BusinessOpportunityMapper;

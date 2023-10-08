@@ -1,6 +1,6 @@
 package com.qf.contract.controller;
 
-import com.qf.common.resp.ResponseResult;
+import com.qf.common.base.resp.ResponseResult;
 import com.qf.contract.common.vo.CustomerVo;
 import com.qf.contract.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

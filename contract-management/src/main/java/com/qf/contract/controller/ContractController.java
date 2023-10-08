@@ -1,7 +1,7 @@
 package com.qf.contract.controller;
 
-import com.qf.common.resp.ResponseResult;
-import com.qf.common.utils.PageUtils;
+import com.qf.common.base.resp.ResponseResult;
+import com.qf.common.base.utils.PageUtils;
 import com.qf.contract.common.qo.ContractQo;
 import com.qf.contract.common.qo.QueryWrapperOfContract;
 import com.qf.contract.common.vo.ContractVo;
