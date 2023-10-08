@@ -45,7 +45,7 @@ public class MyBeanUtils extends BeanUtils {
 
     /**
      *
-     *pageInfo<po>  -->转换为 Page<Vo>
+     *pageInfo<po>  -->转换为 PageInfo<Vo>
      */
     public static <S, T> PageInfo<T> copyPage(PageInfo<S> source, PageInfo<T> pageInfo, Supplier<T> target) {
         //1.copy在持久分页对象pageInfo中除开集合的其它属性
