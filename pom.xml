@@ -20,6 +20,7 @@
         <module>setting</module>
         <module>contract-management</module>
         <module>sale</module>
+        <module>customer-management</module>
     </modules>
 
     <properties>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.customer.mapper.CustomerMapper">
+  <resultMap id="BaseResultMap" type="com.qf.customer.entity.Customer">
+    <!--@mbg.generated-->
+    <!--@Table t_my_customer-->
+    <id column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="customer_phone" jdbcType="VARCHAR" property="customerPhone" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="customer_status" jdbcType="INTEGER" property="customerStatus" />
+    <result column="customer_order" jdbcType="VARCHAR" property="customerOrder" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    customer_id, customer_phone, customer_name, login_time, customer_status, customer_order, 
+    create_time
+  </sql>
+</mapper>
